@@ -1,0 +1,11 @@
+binary: Index.o libMyMath.a
+  gcc -o binary Index.o -L. -lMyMath -Wl,-rpath,.
+Index.o: Index.c
+  gcc -c Index.c
+libMyMath.dll: MyMath.o
+  gcc -L. -lMyMath -I. -shared MyMath.c -o libMyMath.dll
+  #ar cr libMyMath.a MyMath.o
+MyMath.o: MyMath.c
+  gcc -c -fPIC MyMath.c
+clean:
+  rm -f *.o *.dll binary
