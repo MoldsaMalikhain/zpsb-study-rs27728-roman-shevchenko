@@ -1,0 +1,57 @@
+﻿Zadanie 2 - procesy, fork()
+
+Zadania należy wykonać na zajęciach dnia 31.03.2020 na ocenę BDB. Z każdymi kolejnymi zajęciami maksymalna ocena jest o 1 stopień niższa.
+UWAGA - na ocenę BDB należy wykonać OBA zadania. W przypadku wybrania jednego z zdań, maksymalna ocena wynosi DB i również co zajęcia maleje o 1 stopień.
+
+
+Teoria:
+Zapoznać się z pojęciem procesów, demonów oraz funkcją fork() w systemie Linux.
+
+
+Zadanie 1:
+Napisać program, który otworzy wcześniej przygotowany plik tekstowy (niech składa się z kilku-kilkunastu wierszy, może być Lorem ipsum). Program ma za zadanie policzyć oraz wypisać ilość spacji w każdym wierszu. UWAGA - każdy wiersz powinien być "obsługiwany" przez inny proces potomny (fork). proszę pamiętać, że procesy potomne mają kopię zmiennych rodzica w momencie utworzenia.
+
+Algorytm:
+- sprawdź: jestem procesem potomnym?
+  - nie: 
+    - wyzeruj zmienną pomocniczą zawierającą obecną linię
+    - otwórz plik tekstowy
+	- utwórz fork liczący dla danej linii
+	- po zakończeniu każdego potomka wyświetl jego pid oraz ilość spacji w danej linii
+  - tak: 
+    - odczytaj linię tekstu
+	- policz ilość spacji
+	- zwróć ilość spacji do procesu rodzica
+
+Spodziewany przykładowy output:
+./forkZadanie
+proces 46367: w linii 3 jest 5 spacji
+proces 54217: w linii 1 jest 7 spacji
+proces 22413: w linii 2 jest 6 spacji
+proces 78712: w linii 5 jest 9 spacji
+proces 22418: w linii 4 jest 8 spacji
+
+Proszę zwrócić uwagę, że procesy potomne mogą się zakończyć w róznej kolejności.
+
+Zadanie 2:
+Utworzyć program, który będzie demonem (ang. Daemon). Program będzie co dany czas sprawdzał ilość plików w danym katalogu, po czym zapisywał tę informację do pliku z logami. Program powinien na wejściu przyjmować 2 parametry - char* oraz int. Pierwszy to ścieżka do katalogu, a drugi - ilość sekund oczekiwania pomiędzy odczytami.
+
+Algorytm:
+- pobierz folder x oraz interwał sprawdzania y (w milisekundach)
+- utwórz proces demona działający w tle
+- utwórz (w demonie) nieskończoną pętlę:
+  - pobierz ilość plików w folderze (ŁĄCZNIE z plikiem z logami)
+  - zapisz ilość plików w podanym folderze do pliku z logami
+  - zatrzymaj proces na x milisekund
+
+Spodziewany przykładowy output:
+./daemonZadanie (Państwa_folder_domowy)/SO/zad2/ 10000
+
+Plik log.txt:
+2020-03-21 10:15:43 ilość plików: 4
+2020-03-21 10:15:53 ilość plików: 4
+2020-03-21 10:16:03 ilość plików: 5
+2020-03-21 10:16:13 ilość plików: 5
+2020-03-21 10:16:23 ilość plików: 4
+
+
