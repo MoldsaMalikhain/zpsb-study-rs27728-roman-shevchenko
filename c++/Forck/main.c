@@ -1,63 +1,64 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <sys/types.h>
 #include <unistd.h>
+#include <sys/types.h>
 #include <signal.h>
-int line = 0;
-int lines = 0;
-int spaceCheck(FILE *iFile, int lineN, pid_t childPid){
-    if(lineN < lines){
-        unsigned short space;
-        size_t len = 0;
-        int line = 0;
-        ssize_t read;
-        char *text;
-        for (len; len < lineN;line++){
-            *text = fgetc(iFile);
-        }
-        for(len = 0; len < strlen(text); len ++){
-            if(text[len] == ' ') space ++;
-            else if (text[len] == '\0') break;
-        }
-        printf("proces: %d; w linii: %d jest: %d spacji", childPid, lineN, space);
-    }
-    fclose(iFile);
-    return 0;
+// global val
+int lines =0;
+
+FILE *initFile(){
+    FILE *IFile;
+    IFile = fopen("input.txt", "r");
+    if(!IFile) perror("err in file read");
+    return IFile;
 }
-
-int main(int argc, char **argv){
-    FILE *iFile;
-    unsigned short i;
+int lineCounter(FILE *iFile){
+    int counter = 0;
+    while (!feof(iFile)) if(fgetc(iFile) == '\n') counter++;
+    counter ++;
+    return counter;
     
-    iFile = fopen("input.txt", "r");
-    if(!iFile) perror("Error opening file");
-    else{
-        while(1){
-            int fo = fork();
-            pid_t pid, childPid;
+}
+void spaceCheck(FILE *iFile, int line, pid_t pid){
+    if(line < lines){
+        int counter = 0;
+        char *text;
 
-            pid = getpid(); 
+        *text = fgetc(iFile);
         
-            if(fo<0){
-                printf("err");
-                return 1;
-            }
-            else if(fo == 0){    
-                childPid = getpid();
-                spaceCheck(iFile, line, childPid);
-                return 0;
-            }
-            else{
-                if(line < lines){
-                    line ++;
-                    kill(childPid,SIGKILL);
-                }else{
-                    break;
-                }
-            }
+        for (size_t i = 0; i < strlen(text); i++)
+        {
+            if(text[i] == ' ') counter++;
+            else if(text[i] == '\0')break;
         }
-        
+        printf("\nPID: %d line %d have %d spaces\n",pid,line,counter);
     }
+}
+int newFork(FILE *iFile, int line){
+    while(1){
+        pid_t pid = getpid();
+        int f = fork();
+        if(f < 0){
+            printf("err: forck()");
+            return -1;
+        }
+        else if(f == 0){
+            pid = getpid();
+            spaceCheck(iFile, line, pid);
+            return 0;
+        }
+        else{
+            if(lines < line){
+                line++;
+                kill(pid,SIGKILL);
+            }else break;
+        }
+    }
+}
+int main(){
+    FILE *iFile = initFile();    
+    int line = 0;
+    lines = lineCounter(iFile);
+    newFork(iFile, line);
     return 0;
 }
