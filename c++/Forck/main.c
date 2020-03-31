@@ -17,7 +17,6 @@ int lineCounter(FILE *iFile){
     while (!feof(iFile)) if(fgetc(iFile) == '\n') counter++;
     counter ++;
     return counter;
-    
 }
 void spaceCheck(FILE *iFile, int line, pid_t pid){
     if(line < lines){
