@@ -5,7 +5,7 @@
 
 #define CHAR 2048
 
-int crLine = 0;
+int crLine = 1;
 int globalLines = 0;
 
 FILE *initFile(){
@@ -19,10 +19,10 @@ int spaceCheck(FILE * iFile,int rLine, int pid){
         char text[CHAR];
         int counter = 0;
         iFile = fopen("input.txt","r");
-        for (int i = 0; i<rLine; i++){
+        for (int i = 1; i<=rLine; i++){
             fgets (text,CHAR,iFile);
         }
-        for (int k = 0; k < CHAR; k++){
+        for (int k = 1; k < CHAR; k++){
             if(text[k] == ' ')counter++;
             else if (text[k] == '\0')break;
         }
