@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <signal.h>
+#define CHAR 2048
 
 FILE *initFile(){
     FILE *IFile;
@@ -21,10 +22,13 @@ int lineCounter(FILE *iFile){
 int spaceCounter(FILE *iFile, int crLine, int lines, int pid){
     if(crLine < lines){
         int counter = 0;
-        char text = fgetc(iFile);
+        char text[CHAR];
+        for (int i = 0; i<crLine; i++){
+            fgets (text, CHAR, iFile);
+        }
         for(int k = 0; k < strlen(text); k++){
-            if(*text[k] == ' ') counter++;
-            else if(*text[k] == '\0') break;
+            if(text[k] == ' ') counter++;
+            else if(text[k] == '\0') break;
         }
         printf("PID: %d line %d have %d spaces\n",pid,crLine,counter);
     }
