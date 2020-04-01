@@ -1,63 +1,63 @@
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <signal.h>
+
 #define CHAR 2048
 
+int crLine = 0;
+int globalLines = 0;
+
 FILE *initFile(){
-    FILE *IFile;
-    IFile = fopen("input.txt", "r");
-    if(!IFile) perror("err in file read");
-    return IFile;
+    FILE * iFile;
+    iFile = fopen("input.txt","r");
+    if (iFile == NULL) perror("Error opening file");
+    return iFile;
 }
-int lineCounter(FILE *iFile){
-    int counter = 0;
-    while (!feof(iFile)) if(fgetc(iFile) == '\n') counter++;
-    counter ++;
-    printf("%d\n", counter);
-    return counter;
-}
-int spaceCounter(FILE *iFile, int crLine, int lines, int pid){
-    if(crLine < lines){
+int spaceCheck(FILE * iFile,int rLine, int pid){
+    if (rLine < globalLines){
+        char text[CHAR];
         int counter = 0;
-        char *text;
-        for (int i = 0; i<crLine; i++){
-            *text = fgetc(iFile);
+        iFile = fopen("input.txt","r");
+        for (int i = 0; i<rLine; i++){
+            fgets (text,CHAR,iFile);
         }
-        for(int k = 0; k < strlen(text); k++){
-            if(text[k] == ' ') counter++;
-            else if(text[k] == '\0') break;
+        for (int k = 0; k < CHAR; k++){
+            if(text[k] == ' ')counter++;
+            else if (text[k] == '\0')break;
         }
-    printf("proces: %d; w linii: %d jest: %d spacji", pid, crLine, counter);
+        printf("proces: %d; w linii: %d jest: %d spacji\n", pid, rLine, counter);
     }
-    fclose(iFile);
     return 0;
 }
-int forkExecute(FILE *iFile, int lines, int crLine){
+int lineCounter(FILE * iFile){
+    int counter = 0;
+    while (!feof(iFile))if(fgetc(iFile) == '\n')counter++;
+    counter++;
+    return counter;
+}
+int newFork(FILE *iFile){
     while(1){
-        pid_t pid;
-        int f = fork();
-        if(f < 0){
-            printf("err");
+    pid_t pid;
+    int fCheck = fork();
+        if(fCheck < 0){
+            printf("Fork Error");
             return -1;
-        }else if(f == 0){
+        }else if (fCheck == 0) {
             pid = getpid();
-            spaceCounter(iFile, crLine, lines, pid);
+            spaceCheck(iFile, crLine, pid);
             return 0;
         }else{
-            if(crLine < lines){
+            if (crLine < globalLines){
                 crLine++;
                 kill(pid, SIGKILL);
             }else break;
         }
-    }
+    }    
     return 0;
 }
-int main(){
-    FILE *iFile = initFile();    
-    int crLine  = 0;
-    int lines   = lineCounter(iFile);
-    forkExecute(iFile, lines, crLine);
-    return 0;
+int main (){
+    FILE *iFile = initFile();
+    globalLines = lineCounter(iFile);
+    newFork(iFile);
 }
