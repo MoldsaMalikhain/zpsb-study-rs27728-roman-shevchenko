@@ -9,7 +9,6 @@ FILE *initFile(){
     FILE *IFile;
     IFile = fopen("input.txt", "r");
     if(!IFile) perror("err in file read");
-    printf("Text init\n");
     return IFile;
 }
 int lineCounter(FILE *iFile){
@@ -22,16 +21,17 @@ int lineCounter(FILE *iFile){
 int spaceCounter(FILE *iFile, int crLine, int lines, int pid){
     if(crLine < lines){
         int counter = 0;
-        char text[CHAR];
+        char *text;
         for (int i = 0; i<crLine; i++){
-            fgets (text, CHAR, iFile);
+            *text = fgetc(iFile);
         }
         for(int k = 0; k < strlen(text); k++){
             if(text[k] == ' ') counter++;
             else if(text[k] == '\0') break;
         }
-        printf("PID: %d line %d have %d spaces\n",pid,crLine,counter);
+    printf("proces: %d; w linii: %d jest: %d spacji", pid, crLine, counter);
     }
+    fclose(iFile);
     return 0;
 }
 int forkExecute(FILE *iFile, int lines, int crLine){
@@ -44,6 +44,7 @@ int forkExecute(FILE *iFile, int lines, int crLine){
         }else if(f == 0){
             pid = getpid();
             spaceCounter(iFile, crLine, lines, pid);
+            return 0;
         }else{
             if(crLine < lines){
                 crLine++;
@@ -58,6 +59,5 @@ int main(){
     int crLine  = 0;
     int lines   = lineCounter(iFile);
     forkExecute(iFile, lines, crLine);
-    fclose(iFile);
     return 0;
 }
