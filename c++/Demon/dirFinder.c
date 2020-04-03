@@ -6,10 +6,8 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-
-int main(int argc, char **argv)
-{
-    int counter = 0;
+int dirFileCount(int argc, char **argv){
+int counter = 0;
     if(argc != 2)
     {
         printf("\n Please pass in the directory name \n");      

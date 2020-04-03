@@ -7,9 +7,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <syslog.h>
+#define LOG(lg, msg) fprintf(lg, "Some kind of bullshit (%d): ", time(0), (msg));
+
 
 void logger(){
-
+    
 }
 
 int dirFileCount(int argc, char **argv){
