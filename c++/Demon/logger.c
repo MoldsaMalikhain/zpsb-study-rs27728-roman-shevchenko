@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <syslog.h>
 
-#define LOG(lg, msg) fprintf(lg, "Some kind of bullshit (%d): ", time(0), (msg));
 
 int main(){
     FILE *log = fopen("log.log", "w+");
