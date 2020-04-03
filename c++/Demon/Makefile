@@ -1,5 +1,5 @@
 
-run: main.o
-	gcc -o run main.o
-main.o:  main.c
-	gcc -c main.c
+run: dir_in_dir.o
+	gcc -o run dir_in_dir.o
+dir_in_dir.o: dir_in_dir.c
+	gcc -c dir_in_dir.c
