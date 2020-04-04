@@ -13,30 +13,40 @@
 
 
 void logger(){
+
+}
+int main(int argc, char **argv)
+{
+    int argcBuff = argc;
+    char **argvBuff = **argv; 
+    FILE *log = fopen("log.log", "w+");
+
+    pid_t process_id = 0;
+    pid_t sid = 0;
+
+    process_id = fork();
+
+    if(process_id < 0)exit(1);
+    if(process_id > 0)exit(0);
+    umask(0);
+    sid = setsid();
+    if(sid < 0) exit(1);
     
-}
+    close(STDIN_FILENO);
+    close(STDOUT_FILENO);
+    close(STDERR_FILENO);
 
-int daemonCall(ssize_t msTime){
-    sleep(msTime);
-    return 0;
-}
-
-static void skeleton_daemon(){
-}
-
-int main(int argc, char **argv){
 
 
     while (1)
     {
-        skeleton_daemon();
+        dirFileCount(argcBuff, **argvBuff);
 
-        syslog (LOG_NOTICE, "First daemon started.");
+
         sleep (20);
         break;
     }
 
-    syslog (LOG_NOTICE, "First daemon terminated.");
     closelog();
 
     return EXIT_SUCCESS;
