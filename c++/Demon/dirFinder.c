@@ -6,40 +6,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-int dirFileCount(int argc, char **argv){
-int counter = 0;
-    if(argc != 2)
-    {
-        printf("\n Please pass in the directory name \n");      
-        return 1;
-    }
-    DIR *path = NULL;
-    struct dirent *dPath = NULL;
-    char buff[128] = {0};                                       // buffer for storing directory path
-    strcpy(buff, argv[1]);                                      // copy the pass 
-    
-    if(!(path = opendir(argv[1])))
-    {
-        printf("\n Cannot open input derectory [%s]\n",argv[1]);// derectory is fucked
-        exit(1);
-    }
-    else
-    {
-        if(buff[strlen(buff) - 1] == '/')
-            strcat(buff,"newDir/");
-        
-        else strcat(buff,"/newDir/");
-    
-        while(NULL != (dPath = readdir(path)))
-        { 
-            printf("[%s]", dPath -> d_name); 
-            counter++;
-        }                                                       //dir output
-        printf("\n%d\n", counter);
-        closedir(path);
-    }
-    printf("\n");
-    return counter;
+int main(int argc, char **argv){
+    printf("%s %s %s", argv[0], argv[1], argv[2]);
+    return 0;
 }
 
 /*

@@ -6,4 +6,4 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-int dirFileCount(int, char);
+int dirFileCount(int, char *);
