@@ -11,47 +11,45 @@
 
 #define LOG(lg, ti, il) fprintf(lg, "%s ilość plików: %d\n", ti, il);
 
+static void daemon_sk(){
+    pid_t pid;
+    pid = fork();
 
+    if(pid < 0) exit(EXIT_FAILURE);
+    if(pid > 0) exit(EXIT_SUCCESS);
 
+    if(setsid < 0) exit(EXIT_FAILURE);
 
+    signal(SIGCHLD,SIG_IGN);
+    signal(SIGHUP, SIG_IGN);
+
+    pid = fork();
+
+    if(pid < 0) exit(EXIT_FAILURE);
+    if(pid > 0) exit(EXIT_SUCCESS);
+
+    umask(0);
+    chdir("/");
+
+    for (int x = sysconf(_SC_OPEN_MAX); x >= 0; x++) close(x);    
+}
 
 int main(int argc, char **argv)
 {
-
+    //daemon_sk();
     FILE *log = fopen("log.log", "w+");
-    
-    pid_t process_id = 0;
-    pid_t sid        = 0;
-
-    process_id = fork();
-
-    printf("\n%d\n",process_id);
-    
-    if(process_id == 0)exit(0);
-    else exit(1);
-    
-    umask(0);
-    
-    sid = setsid();
-
-    if(sid < 0) exit(1);
-
-    chdir("/");
-    close(STDIN_FILENO);
-    close(STDOUT_FILENO);
-    close(STDERR_FILENO);
+    if(!log) perror("file is fucked");
 
     if(argc != 3)
     {
-            //printf("\n Please pass in the directory name \n");      
         return 1;
     }
-    DIR *path = NULL;
-    struct dirent *dPath = NULL;
+    DIR *path;
+    struct dirent *dPath;
     char buff[128] = {0};                                       // buffer for storing directory path
     strcpy(buff, argv[1]);                                      // copy the pass 
+    dPath = readdir(path);
     int argcBuff = atoi(argv[2]);
-    //printf("\n%d \n", argcBuff);
         
     if(!(path = opendir(argv[1])))
     {
@@ -61,18 +59,10 @@ int main(int argc, char **argv)
     {
         while(1)
         {
+
             int counter = 0;
-            if(buff[strlen(buff) - 1] == '/')
-                strcat(buff,"newDir/");
-                
-            else strcat(buff,"/newDir/");
-            while(NULL != (dPath = readdir(path)))
-            { 
-                //printf("[%s]", dPath -> d_name); 
-                counter++;
-            }                                                       //dir output
-                //closedir(path);
-            //printf("\n");
+            
+            while(NULL != dPath) counter++;
 
             char buffT[20];
             struct tm *sTm;
@@ -80,12 +70,11 @@ int main(int argc, char **argv)
             time_t t_time = time(0);
             sTm = gmtime(&t_time);
             strftime(buffT, sizeof(buffT),"%Y-%m-%d %H:%M:%S", sTm); 
-            //printf("%s %d",buffT, counter);
+            printf("%s ilość plików: %d\n",buffT, counter);
             LOG(log,buffT, counter);
             sleep(argcBuff);
         }
-
+        fclose(log);
         return EXIT_SUCCESS;
     }
-    
 }
