@@ -9,7 +9,7 @@
 #include <sys/stat.h>
 #include <syslog.h>
 
-#define LOG(lg, ti, il) fprintf(lg, "%s ilość plików: %d\n", ti, il);
+#define LOG(lg, msg, ti, il) fprintf(lg, (msg), ti, il);
 
 static void daemon_sk(){
     pid_t pid;
@@ -37,44 +37,48 @@ static void daemon_sk(){
 int main(int argc, char **argv)
 {
     //daemon_sk();
+
+    char buff[128] = {0};                                       // buffer for storing directory path
+    strcpy(buff, argv[1]);                                      // copy the pass 
+        
+    int argcBuff = atoi(argv[2]);
     FILE *log = fopen("log.log", "w+");
+    fprintf(log, "Hellow");
     if(!log) perror("file is fucked");
 
     if(argc != 3)
     {
         return 1;
     }
-    DIR *path;
-    struct dirent *dPath;
-    char buff[128] = {0};                                       // buffer for storing directory path
-    strcpy(buff, argv[1]);                                      // copy the pass 
-    dPath = readdir(path);
-    int argcBuff = atoi(argv[2]);
-        
-    if(!(path = opendir(argv[1])))
+    
+    while(1)
     {
-        exit(1);
-    }
-    else
-    {
-        while(1)
+        int counter = 0;
+
+        DIR *path;
+        struct dirent *dPath;
+
+        if(!(path = opendir(argv[1])))
         {
-
-            int counter = 0;
-            
-            while(NULL != dPath) counter++;
-
-            char buffT[20];
-            struct tm *sTm;
-
-            time_t t_time = time(0);
-            sTm = gmtime(&t_time);
-            strftime(buffT, sizeof(buffT),"%Y-%m-%d %H:%M:%S", sTm); 
-            printf("%s ilość plików: %d\n",buffT, counter);
-            LOG(log,buffT, counter);
-            sleep(argcBuff);
+            exit(1);
         }
-        fclose(log);
-        return EXIT_SUCCESS;
+        else while(NULL != (dPath = readdir(path)))  counter++;
+            
+        closedir(path);
+
+        char buffT[20];
+        struct tm *sTm;
+
+        time_t t_time = time(0);
+        sTm = gmtime(&t_time);
+        strftime(buffT, sizeof(buffT),"%Y-%m-%d %H:%M:%S", sTm); 
+
+        printf("%s ilość plików: %d\n",buffT, counter);
+
+        LOG(log, "%s ilość plików: %d\n", buffT, counter);
+
+        sleep(argcBuff);
     }
+    fclose(log);
+    return EXIT_SUCCESS;
 }
