@@ -36,7 +36,7 @@ static void daemon_sk(){
 
 int main(int argc, char **argv)
 {
-    //daemon_sk();
+    daemon_sk();
 
     char buff[128] = {0};                                       // buffer for storing directory path
     strcpy(buff, argv[1]);                                      // copy the pass 
