@@ -9,7 +9,7 @@
 #include <sys/stat.h>
 #include <syslog.h>
 
-#define LOG(lg, msg, ti, il) fprintf(lg, (msg), ti, il);
+#define LOG(___LOG_FILE___, ___MSG___, ___TIME___, ___COUNTER___) fprintf(___LOG_FILE___, (___MSG___), ___TIME___, ___COUNTER___);
 
 static void daemon_sk(){
     pid_t pid;
@@ -43,7 +43,6 @@ int main(int argc, char **argv)
         
     int argcBuff = atoi(argv[2]);
     FILE *log = fopen("log.log", "w+");
-    fprintf(log, "Hellow");
     if(!log) perror("file is fucked");
 
     if(argc != 3)
@@ -62,8 +61,7 @@ int main(int argc, char **argv)
         {
             exit(1);
         }
-        else while(NULL != (dPath = readdir(path)))  counter++;
-            
+        else while(NULL != (dPath = readdir(path)))  counter++;    
         closedir(path);
 
         char buffT[20];
@@ -72,9 +70,7 @@ int main(int argc, char **argv)
         time_t t_time = time(0);
         sTm = gmtime(&t_time);
         strftime(buffT, sizeof(buffT),"%Y-%m-%d %H:%M:%S", sTm); 
-
-        printf("%s ilość plików: %d\n",buffT, counter);
-
+        printf("%s ilość plików: %d\n", buffT, counter);
         LOG(log, "%s ilość plików: %d\n", buffT, counter);
 
         sleep(argcBuff);
