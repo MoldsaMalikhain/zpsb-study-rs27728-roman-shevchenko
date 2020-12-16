@@ -1,0 +1,95 @@
+using System;
+
+namespace Laboratorium_4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            do
+            {
+                Console.WriteLine("******************* " + "\n" +
+                                  "Co mam zrobic ?  *  " + "\n" +
+                                  "Przedstaw    [1] *  " + "\n" +
+                                  "Szczekaj     [2] *  " + "\n" +
+                                  "Dodaj        [3] *  " + "\n" +
+                                  "Szukaj       [4] *  " + "\n" +
+                                  "Pozegnaj     [5] *  " + "\n" +
+                                  "*******************");
+
+                Dogou dog = new Dogou(Console.ReadLine());
+
+                dog.DogouInitialize();
+
+            } while (true);
+        }
+
+    }
+
+    public class Dogou {
+        private String input;
+
+        private string dogosname = "BananaDog";
+        private int dogoAge = 500;
+        public Dogou(String _input)
+        {
+            input = _input;
+        }
+
+        void GetName()
+        {
+            Console.WriteLine("My name is {0}", dogosname);
+        }
+        float Count(float _x, float _y)
+        {
+            float count = _x + _y;
+            Console.WriteLine("Here your some thing : {0}", count);
+            return count;
+        }   
+        void Find(string _word, char _later)
+        {
+            int counter = 0;
+            foreach (var item in _word)
+            {
+                if (item == _later) counter++;
+            }
+            Console.WriteLine("Here what i found : {0}", counter + " of : " + _later);
+        }
+
+        void Bark(int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                Console.WriteLine("Bark!");
+            }
+        }
+
+        public void DogouInitialize()
+        {
+            int arg = Int32.Parse(input);
+
+            if (arg == 1) GetName();
+            else if (arg == 2)
+            {
+                Console.Write("And how much tims i have to bark for you?? : ");
+                Bark(Convert.ToInt32(Console.ReadLine()));
+            }
+            else if (arg == 3)
+            {
+                Console.Write("I'm dogou, not a computer, but i will try. Please give me some numbus : ");
+                Count(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
+            }
+            else if (arg == 4)
+            {
+                Console.Write("Kk, i'll find for you dat thing. Where and what i have to find? : ");
+                Find(Console.ReadLine(), Console.ReadLine()[0]);
+            }
+            else if (arg == 5)
+            {
+                Console.Write("Welp, you know where you can find me :3");
+                Console.ReadLine(); Environment.Exit(0);
+            }
+
+        }
+    }
+}

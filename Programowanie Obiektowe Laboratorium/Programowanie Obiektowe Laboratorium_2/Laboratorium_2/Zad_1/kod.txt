@@ -1,0 +1,55 @@
+using System;
+
+namespace Laboratorium_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int type, length;
+
+            Console.WriteLine("[1] Kwadrat \n[2] Trojkot prostatny");
+            type = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Teraz podaj dlugosc: ");
+            length = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(' ');
+
+            Render(type, length);
+
+            Console.ReadLine();
+        }
+
+        static void Render(int _type, int _length)
+        {
+            if (_type == 1)
+            {
+                for (int i = 0; i < _length; i++)
+                {
+                    Console.Write("#");
+                    for (int k = 0; k < _length; k++)
+                    {
+                        Console.Write(" #");
+                    }
+                    Console.Write('\n');
+                }
+            }
+            else if(_type == 2)
+            {
+                for (int i = 0; i < _length; i++)
+                {
+                    Console.Write('#');
+                    for (int k = 0; k < i; k++)
+                    {
+                        Console.Write(" #");
+                    }
+                    Console.Write("\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("[1] Kwadrat \n[2] Trojkot prostatny");
+            }
+        }
+
+    }
+}

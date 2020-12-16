@@ -1,0 +1,16 @@
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\bin\Debug\netcoreapp3.1\DataAutomization.exe
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\bin\Debug\netcoreapp3.1\DataAutomization.deps.json
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\bin\Debug\netcoreapp3.1\DataAutomization.runtimeconfig.json
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\bin\Debug\netcoreapp3.1\DataAutomization.runtimeconfig.dev.json
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\bin\Debug\netcoreapp3.1\DataAutomization.dll
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\bin\Debug\netcoreapp3.1\DataAutomization.pdb
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\obj\Debug\netcoreapp3.1\DataAutomization.csprojAssemblyReference.cache
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\obj\Debug\netcoreapp3.1\DataAutomization.AssemblyInfoInputs.cache
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\obj\Debug\netcoreapp3.1\DataAutomization.AssemblyInfo.cs
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\obj\Debug\netcoreapp3.1\DataAutomization.csproj.CoreCompileInputs.cache
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\obj\Debug\netcoreapp3.1\DataAutomization.dll
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\obj\Debug\netcoreapp3.1\DataAutomization.pdb
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\obj\Debug\netcoreapp3.1\DataAutomization.genruntimeconfig.cache
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+D:\ZPSB\API\Lab_2\DataAutomization\DataAutomization\obj\Debug\netcoreapp3.1\DataAutomization.csproj.CopyComplete

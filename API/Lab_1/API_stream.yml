@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: "OpenAPI Steaming Service"
+  description: "This is a sample server film streaming server"
+  version: "1.0.0"
+
+paths:
+  /film:
+    post:
+      tags:
+      - "film"
+      summary: "Add new film"
+      description: ""
+      operationId: "addFilm"
+      requestBody:
+        required: true
+        content:
+          application/json: 
+            schema:
+              $ref: "#/definition/schemas/Film"
+      responses:
+        '200':
+          description: "Succes"
+        '400':
+          description: "Invalid request"
+    
+    get:
+      tags:
+      - film
+      summary: "List of films"
+      description: ""
+      operationId: "list"
+      parameters:
+      - $ref: "#/definition/Limit"
+      - $ref: "#/definition/Offset"
+      responses:
+        '200':
+          description: "Succes"
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/definition/schemas/Film"
+        '400':
+          description: "Invalid request"
+  /film/{filmId}:
+    get:
+      tags:
+      - film
+      summary: "Get film by Id"
+      description: ""
+      operationId: "getById"
+      parameters:
+      - name: filmId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Succes"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/definition/schemas/Film"
+        '400':
+          description: "Invalid request"
+
+    patch:
+      tags:
+      - film
+      summary: "Update film info"
+      description: ""
+      operationId: "filmUpdate"
+      parameters:
+      - name: filmId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/definition/schemas/Film"
+      responses:
+        '200':
+          description: "Succes"
+        '400':
+          description: "Invalid request"
+    
+    delete:
+      tags:
+      - film
+      summary: "delete film"
+      description: ""
+      parameters:
+      - name: filmId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: "Succes"
+
+definition:
+  schemas:
+    Film:
+      type: object
+      properties:
+        filmId:
+          type: integer
+          format: int64
+        filmName:
+          type: string  
+  Limit:
+    name: Limit
+    in: query
+    schema:
+        type: integer
+  Offset:
+    name: Offset
+    in: query
+    schema:
+        type: integer
+
+
+

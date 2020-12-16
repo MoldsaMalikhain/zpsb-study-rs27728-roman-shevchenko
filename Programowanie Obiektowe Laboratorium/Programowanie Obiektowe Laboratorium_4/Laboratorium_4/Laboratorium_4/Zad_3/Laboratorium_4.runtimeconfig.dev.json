@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Moldas\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Moldas\\.nuget\\packages"
+    ]
+  }
+}

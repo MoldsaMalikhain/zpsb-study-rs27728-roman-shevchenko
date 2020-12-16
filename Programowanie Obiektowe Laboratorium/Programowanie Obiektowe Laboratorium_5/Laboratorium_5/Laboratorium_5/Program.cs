@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Laboratorium_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dogou dog = new Dogou();
+            do
+            {
+                dog.Init();
+            } while (true);
+
+            //List<Dogou> dog = new List<Dogou>();
+            //do
+            //{
+            //    string dogouName = Convert.ToString(Console.ReadLine());
+
+            //    Dogou newDogo = new Dogou();
+            //    newDogo.Name = dogouName;
+            //    dog.Add(newDogo);
+
+            //} while (true);
+        }
+    }
+    public class Dogou
+    {
+        public string Name;
+        public static int dogouAmount;
+
+        public void Init()
+        {
+            List<string> dog = new List<string>();
+            Name = Convert.ToString(Console.ReadLine());
+            dog.Add(Name);
+            dogouAmount += 1;
+            Console.WriteLine(dogouAmount);
+        }
+    }
+    
+}
+
+
+

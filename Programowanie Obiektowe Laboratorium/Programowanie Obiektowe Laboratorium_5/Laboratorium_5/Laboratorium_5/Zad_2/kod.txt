@@ -1,0 +1,82 @@
+using System;
+
+namespace Laboratorium_5
+{
+    public static class Consolken
+    {
+        public static void Print(string input)
+        {
+            Console.WriteLine("Text : {0}", input);
+        }
+        public static void SetColor(string color)
+        {
+            switch (color)
+            {
+                case "green":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                case "red":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case "blue":
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+            }
+        }
+        public static void ClearConsole()
+        {
+            Console.Clear();
+        }
+        public static void ExitConsole()
+        {
+            Environment.Exit(0);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            do
+            {
+                Console.WriteLine("[1] - Print\n[2] - Color\n[3] - Clear\n[4] - Exit");
+                int input = Convert.ToInt32(Console.ReadLine());
+                if (input == 1)
+                {
+                    Consolken.Print(Convert.ToString(Console.ReadLine()));
+                }
+                else if(input == 2)
+                {
+                    Consolken.SetColor(Convert.ToString(Console.ReadLine()));
+                }
+                else if(input == 3)
+                {
+                    Consolken.ClearConsole();
+                }
+                else if(input == 4)
+                {
+                    Consolken.ExitConsole();
+                }
+            } while (true);
+        }
+    }
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

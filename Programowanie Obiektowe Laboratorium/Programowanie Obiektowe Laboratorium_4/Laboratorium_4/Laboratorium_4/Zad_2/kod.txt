@@ -1,0 +1,76 @@
+using System;
+
+namespace Laboratorium_4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Computer comp = new Computer();
+            comp.Initialize();
+        }
+
+    }
+    public class Computer
+    {
+        private class Procesor 
+        {
+            public double clocks { get; set; } = 2.20;
+            public int cores { get; set; } = 8;
+            public string proc { get; set; } = "Intel Core i7";
+            public Procesor(string _proc, double _clocks, int _cores)
+            {
+                _proc = proc;
+                _clocks = clocks;
+                _cores = cores;
+            }
+        }
+        public class RAM 
+        {
+            public int size { get; set; } = 8;
+            public int CR { get; set; } = 8;
+            public RAM( int _CR, int _size)
+            {
+                _size = size;
+                _CR = CR;
+            }
+        }
+        public class Dysk
+        {
+            public int[] size { get; set; } = { 256, 10024 };
+            public string[] dysk { get; set; } = {"Adata, WDC" };
+            public Dysk(string[] _dysk, int[] _size)
+            {
+                _size = size;
+                _dysk = dysk;
+            }
+
+
+        }
+        public void Initialize()
+        {
+            Computer.Procesor proc = new Computer.Procesor("Intel Core i7", 2.20, 6);
+            Console.WriteLine("Some data from my PC");
+            Console.WriteLine("Procesor : " + proc.proc);
+            Console.WriteLine("Cores : " + proc.cores);
+            Console.WriteLine("Clocks : " + proc.clocks);
+            Computer.RAM ram = new Computer.RAM(8,8);
+            Console.WriteLine("RAM");
+            Console.WriteLine("RAM size : " + ram.size);
+            Console.WriteLine("RAM CR : " + ram.CR);
+            string[] tempS = { "Adata, WDC" };
+            int[] tempI = { 256, 10024 };
+            Computer.Dysk dysk = new Computer.Dysk(tempS, tempI);
+            foreach (var item in dysk.dysk)
+            {
+                Console.WriteLine("Hard drive : " + item);
+            }
+            foreach (var item in dysk.size)
+            {
+                Console.WriteLine("Hard drive size : " + item);
+            }
+
+            
+        }
+    }
+}

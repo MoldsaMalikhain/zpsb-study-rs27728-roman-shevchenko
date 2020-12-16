@@ -1,0 +1,18 @@
+using System;
+
+namespace Laboratorium_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int constInt = 2020, year = 0;
+            Console.Write("Enter your date of birth : ");
+            year = Convert.ToInt16(Console.ReadLine());
+            if (2020 - year < 18)
+                Console.WriteLine("Underaged");
+            else
+                Console.WriteLine("Jest git");
+        }
+    }
+}

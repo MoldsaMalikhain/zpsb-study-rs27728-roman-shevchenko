@@ -1,0 +1,34 @@
+static void Main(string[] args)
+        {
+            int length, min, max;
+            Console.Write("Length : ");
+            length = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nMin : ");
+            min = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nMax : ");
+            max = Convert.ToInt16(Console.ReadLine());
+
+            RandSort(length, min, max);
+        }
+
+        static void RandSort(int _length, int _min, int _max) {
+            _max += 1;
+            var rand = new Random();
+            int[] randNam = new int[_length];
+            for (int i = 0; i < _length; i++)
+            {
+                //Console.WriteLine(rand.Next(_min, _max));
+                randNam[i] = rand.Next(_min, _max);
+            }
+            Console.Write("Rand : ");
+            for (int i = 0; i < _length; i++)
+            {
+                Console.Write(randNam[i] + " ");
+            }
+            Console.Write("\nSorted : ");
+            Array.Sort(randNam);
+            for (int i = 0; i < _length; i++)
+            {
+                Console.Write(randNam[i] + " ");
+            }
+        }

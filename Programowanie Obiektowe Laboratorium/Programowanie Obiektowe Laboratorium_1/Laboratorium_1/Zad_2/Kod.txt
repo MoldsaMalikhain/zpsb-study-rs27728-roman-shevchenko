@@ -1,0 +1,47 @@
+using System;
+
+namespace Laboratorium_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int type, input;
+            Console.WriteLine("[1] - km/s -> m/s\n[2] - C -> Kelvin\n[3] - C -> F");
+            type = Convert.ToInt16(Console.ReadLine());
+            Console.Write("Input : ");
+            input = Convert.ToInt16(Console.ReadLine());
+            ConvertTo(type, input);
+            Console.ReadLine();
+        }
+
+        static void ConvertTo(int type, int _input)
+        {
+            double converted = 0;
+
+            if(type == 1)
+            {
+                Console.WriteLine("km/s to m/s");
+                converted = _input / 3.6;
+                Console.WriteLine("Km/s : {0} || m/s : {1}", _input, converted);
+
+            }
+            else if(type == 2)
+            {
+                Console.WriteLine("C -> Kelvin");
+                converted = _input + 273.15;
+                Console.WriteLine("C : {0} || Kelvin : {1}", _input, converted);
+            }
+            else if(type == 3)
+            {
+                Console.WriteLine("C -> F");
+                converted = (_input * 9 / 5) + 32;
+                Console.WriteLine("C : {0} || F : {1}", _input, converted);
+            }
+            else
+            {
+                Console.WriteLine("err");
+            }
+        }
+    }
+}

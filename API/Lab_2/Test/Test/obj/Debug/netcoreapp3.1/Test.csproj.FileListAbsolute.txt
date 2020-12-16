@@ -1,0 +1,13 @@
+D:\ZPSB\API\Lab_2\Test\Test\bin\Debug\netcoreapp3.1\Test.exe
+D:\ZPSB\API\Lab_2\Test\Test\bin\Debug\netcoreapp3.1\Test.deps.json
+D:\ZPSB\API\Lab_2\Test\Test\bin\Debug\netcoreapp3.1\Test.runtimeconfig.json
+D:\ZPSB\API\Lab_2\Test\Test\bin\Debug\netcoreapp3.1\Test.runtimeconfig.dev.json
+D:\ZPSB\API\Lab_2\Test\Test\bin\Debug\netcoreapp3.1\Test.dll
+D:\ZPSB\API\Lab_2\Test\Test\bin\Debug\netcoreapp3.1\Test.pdb
+D:\ZPSB\API\Lab_2\Test\Test\obj\Debug\netcoreapp3.1\Test.csprojAssemblyReference.cache
+D:\ZPSB\API\Lab_2\Test\Test\obj\Debug\netcoreapp3.1\Test.AssemblyInfoInputs.cache
+D:\ZPSB\API\Lab_2\Test\Test\obj\Debug\netcoreapp3.1\Test.AssemblyInfo.cs
+D:\ZPSB\API\Lab_2\Test\Test\obj\Debug\netcoreapp3.1\Test.csproj.CoreCompileInputs.cache
+D:\ZPSB\API\Lab_2\Test\Test\obj\Debug\netcoreapp3.1\Test.dll
+D:\ZPSB\API\Lab_2\Test\Test\obj\Debug\netcoreapp3.1\Test.pdb
+D:\ZPSB\API\Lab_2\Test\Test\obj\Debug\netcoreapp3.1\Test.genruntimeconfig.cache

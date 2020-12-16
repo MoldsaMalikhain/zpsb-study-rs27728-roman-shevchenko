@@ -1,0 +1,13 @@
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\bin\Debug\netcoreapp3.1\Laboratorium_5.exe
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\bin\Debug\netcoreapp3.1\Laboratorium_5.deps.json
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\bin\Debug\netcoreapp3.1\Laboratorium_5.runtimeconfig.json
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\bin\Debug\netcoreapp3.1\Laboratorium_5.runtimeconfig.dev.json
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\bin\Debug\netcoreapp3.1\Laboratorium_5.dll
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\bin\Debug\netcoreapp3.1\Laboratorium_5.pdb
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\obj\Debug\netcoreapp3.1\Laboratorium_5.csprojAssemblyReference.cache
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\obj\Debug\netcoreapp3.1\Laboratorium_5.AssemblyInfoInputs.cache
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\obj\Debug\netcoreapp3.1\Laboratorium_5.AssemblyInfo.cs
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\obj\Debug\netcoreapp3.1\Laboratorium_5.csproj.CoreCompileInputs.cache
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\obj\Debug\netcoreapp3.1\Laboratorium_5.dll
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\obj\Debug\netcoreapp3.1\Laboratorium_5.pdb
+D:\ZPSB\Programowanie Obiektowe Laboratorium\Programowanie Obiektowe Laboratorium_5\Laboratorium_5\Laboratorium_5\obj\Debug\netcoreapp3.1\Laboratorium_5.genruntimeconfig.cache

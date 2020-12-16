@@ -1,0 +1,13 @@
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\bin\Debug\netcoreapp3.1\ClassLib.exe
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\bin\Debug\netcoreapp3.1\ClassLib.deps.json
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\bin\Debug\netcoreapp3.1\ClassLib.runtimeconfig.json
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\bin\Debug\netcoreapp3.1\ClassLib.runtimeconfig.dev.json
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\bin\Debug\netcoreapp3.1\ClassLib.dll
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\bin\Debug\netcoreapp3.1\ClassLib.pdb
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\obj\Debug\netcoreapp3.1\ClassLib.csprojAssemblyReference.cache
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\obj\Debug\netcoreapp3.1\ClassLib.AssemblyInfoInputs.cache
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\obj\Debug\netcoreapp3.1\ClassLib.AssemblyInfo.cs
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\obj\Debug\netcoreapp3.1\ClassLib.csproj.CoreCompileInputs.cache
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\obj\Debug\netcoreapp3.1\ClassLib.dll
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\obj\Debug\netcoreapp3.1\ClassLib.pdb
+D:\ZPSB\API\Laab_3\ClassLib\ClassLib\obj\Debug\netcoreapp3.1\ClassLib.genruntimeconfig.cache
